@@ -2,6 +2,7 @@ package users;
 
 import io.restassured.response.Response;
 import users.create.CreateUserRequestBody;
+import users.create.response.CreateUserErrorResponse;
 import users.create.response.CreateUsersResponse;
 import users.get.GetUserResponse;
 import users.getAll.GetAllUsersResponse;
@@ -39,5 +40,14 @@ public class UsersService {
         createUsersResponse.setStatusCode(response.statusCode());
 
         return createUsersResponse;
+    }
+
+    public CreateUserErrorResponse createUserExpectingError(CreateUserRequestBody body) {
+        Response response = new UsersClient().create(body);
+
+        CreateUserErrorResponse errorResponse = response.as(CreateUserErrorResponse.class);
+        errorResponse.setStatusCode(response.statusCode());
+
+        return errorResponse;
     }
 }
