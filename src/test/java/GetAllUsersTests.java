@@ -4,7 +4,6 @@ import users.UsersService;
 import users.getAll.GetAllUsersResponse;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
 
 public class GetAllUsersTests {
     // 1. Arrange
@@ -24,5 +23,15 @@ public class GetAllUsersTests {
         // 3. Assert
         assertEquals(getAllUsersResponse.getStatucCode(), 200);
         assertEquals(getAllUsersResponse.getDataList().size(), 20);
+    }
+
+    @Test
+    public void shouldGetAllUsersCreatedUnderYourAccount() {
+        //2. Act
+        GetAllUsersResponse getAllUsersResponse = usersService.getAllUsersCreatedUnderYourAccount();
+
+        // 3. Assert
+        assertEquals(getAllUsersResponse.getStatucCode(), 200);
+        assertEquals(getAllUsersResponse.getDataList().size(), 10);
     }
 }

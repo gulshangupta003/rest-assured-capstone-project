@@ -29,4 +29,15 @@ public class UsersService {
 
         return getUsersResponse;
     }
+
+    public GetAllUsersResponse getAllUsersCreatedUnderYourAccount() {
+        Response response = new UsersClient().getAllCreatedUnderYourAccount();
+
+        int statusCode = response.statusCode();
+
+        GetAllUsersResponse getAllUsersResponse = response.as(GetAllUsersResponse.class);
+        getAllUsersResponse.setStatucCode(statusCode);
+
+        return getAllUsersResponse;
+    }
 }
