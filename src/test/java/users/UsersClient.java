@@ -57,7 +57,7 @@ public class UsersClient {
                 given()
                         .header("app-id", "633d82042ba9894b482d72d3")
                         .queryParam("created", "1")
-                        .when()
+                .when()
                         .get("https://dummyapi.io/data/v1//user");
 
         response
