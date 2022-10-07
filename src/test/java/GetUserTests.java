@@ -4,6 +4,8 @@ import org.testng.annotations.Test;
 import users.UsersService;
 import users.get.GetUserResponse;
 
+import static org.testng.Assert.*;
+
 public class GetUserTests {
 
     // 1. Arrange
@@ -23,6 +25,6 @@ public class GetUserTests {
         String id = getUserResponse.getId();
 
         // 3. Assert
-        Assert.assertEquals(id, "60d0fe4f5311236168a109dd");
+        assertEquals(id, "60d0fe4f5311236168a109dd");
     }
 }
