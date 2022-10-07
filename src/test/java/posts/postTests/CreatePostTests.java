@@ -21,7 +21,7 @@ public class CreatePostTests {
                 .build();
 
         // 2. Act
-        CreatePostResponse createPostResponse = postsService.createPosts(requestBody);
+        CreatePostResponse createPostResponse = postsService.createPost(requestBody);
 
         // 3. Assert
         createPostResponse.assertPost(requestBody);
