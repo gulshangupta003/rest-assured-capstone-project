@@ -1,6 +1,5 @@
 package posts.postTests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import posts.PostsService;
@@ -13,14 +12,14 @@ public class GetPostTests {
     // 1. Arrange
     private PostsService postsService;
     private String id;
-    GetAllPostsResponse getAllPostsResponse;
+    private GetAllPostsResponse getAllPostsResponse;
 
     @BeforeClass
     public void beforeClass() {
         postsService = new PostsService();
-//        id = "633ff2fb4887a26cd6c18edc";
+
         getAllPostsResponse = new PostsService().getAllPosts();
-        id = getAllPostsResponse.getDataList().get(0).getId();
+        id = getAllPostsResponse.getRandomPostId();
     }
 
     @Test
@@ -31,6 +30,5 @@ public class GetPostTests {
         // 3. Assert
         assertEquals(getPostResponse.getStatusCode(), 200);
         assertEquals(getPostResponse.getId(), id);
-        assertEquals(getPostResponse.getLikes(), 0);
     }
 }

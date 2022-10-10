@@ -1,10 +1,12 @@
 package posts.getAllPosts;
 
 import java.util.List;
+import java.util.Random;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
+import posts.getPost.GetPostResponse;
 
 @Getter
 public class GetAllPostsResponse{
@@ -42,5 +44,10 @@ public class GetAllPostsResponse{
 				.filter(data -> data.getId().equals(id))
 				.findFirst()
 				.isPresent();
+	}
+
+	public String getRandomPostId() {
+		return dataList.get(new Random().nextInt(dataList.size()))
+				.getId();
 	}
 }

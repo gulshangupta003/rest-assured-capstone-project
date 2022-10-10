@@ -59,9 +59,9 @@ public class PostsClient {
         .when()
             .get("https://dummyapi.io/data/v1/post");
 
-        response
-            .then()
-                .log().body();
+//        response
+//            .then()
+//                .log().body();
 
         return response;
     }

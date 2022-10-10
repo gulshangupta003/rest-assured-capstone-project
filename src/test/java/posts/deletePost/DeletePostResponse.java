@@ -16,7 +16,6 @@ public class DeletePostResponse {
 
 	public void assertDelete(String id) {
 		GetAllPostsResponse allPosts = new PostsService().getAllPosts();
-
 		assertEquals(allPosts.hasPost(id), false);
 	}
 }
